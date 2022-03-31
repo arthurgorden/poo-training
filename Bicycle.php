@@ -40,7 +40,9 @@
 
       public function setCurrentSpeed(int $currentSpeed): void
       {
-          $this->currentSpeed = $currentSpeed;
+          if ($currentSpeed >= 0) {
+              $this->currentSpeed = $currentSpeed;
+          }
       }
 
       //Autres
@@ -48,14 +50,13 @@
       {
           $this->currentSpeed = 15;
 
-
-          return "Go !";
+          return 'Go Biker!';
       }
 
 
       public function brake(): string
       {
-          $sentence = "";
+          $sentence = '';
 
           while ($this->currentSpeed > 0) {
               $this->currentSpeed--;
@@ -66,14 +67,6 @@
           $sentence .= "I'm stopped !";
 
           return $sentence;
-      }
-
-
-      public function setCurrentSpeed(int $currentSpeed): void
-      {
-          if ($currentSpeed >= 0) {
-              $this->currentSpeed = $currentSpeed;
-          }
       }
 
 
